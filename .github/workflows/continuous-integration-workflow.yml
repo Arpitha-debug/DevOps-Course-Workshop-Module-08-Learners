@@ -55,4 +55,19 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "herukudevopsapp" #Must be unique in Heroku
           heroku_email: "arpitha.mankhala@capita.co.uk" 
-          usedocker: true
+          justlogin: true
+
+    - name: "Login to heroku registry"
+      run: heroku container:login
+
+    - name: "Build and push to heroku registry"
+      run: heroku container:push web --app herukudevopsapp
+
+    - name: "Releases the container"
+      run: heroku container:release web --app herukudevopsapp
+
+
+      # heroku container:push web --app herukudevopsapp
+      # heroku container:release web --app herukudevopsapp
+      # heroku logs --tail --app herukudevopsapp
+      # docker tag arpithadockerhub/dotnettemplate  registry.heroku.com/herukudevopsapp/web
