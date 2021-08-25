@@ -50,4 +50,4 @@ jobs:
           push: true
           tags: arpithadockerhub/dotnettemplate:latest
 
-      # docker push arpithadockerhub/dotnettemplate 
+   
